@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to DataGuard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;900&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Archivo', sans-serif;
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            font-size: 64px;
+            color: #4da8da;
+            margin: 0;
+            text-align: center;
+            line-height: 1.2;
+            transition: color 0.3s;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-align: center;
+            color: #e6e6e6;
+            transition: color 0.3s;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #4da8da;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
+        }
+
+        .toggle-btn:hover {
+            background-color: #007bff;
+        }
+
+        a {
+            color: #4da8da;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .dark-theme {
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+        }
+
+        .light-theme {
+            background-color: #E2BBE9;
+            color: #333;
+        }
+
+        .light-theme h1 {
+            color: #254336;
+        }
+
+        .light-theme p {
+            color: #333;
+        }
+
+        .light-theme .toggle-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .light-theme a {
+            color: #007bff;
+        }
+
+        .archivo-bold {
+            font-weight: 900;
+        }
+
+        .archivo-light {
+            font-weight: 100;
+        }
+
+        /* Add some animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" id="themeToggle">Switch Theme</button>
+    <h1 class="archivo-bold slide-up">Welcome to</h1>
+    <h1 class="archivo-bold slide-up" style="animation-delay: 0.3s;">DataGuard</h1>
+    <p class="archivo-light fade-in" style="animation-delay: 0.6s;">
+        Ensuring the security and integrity of your files with real-time monitoring and notifications.
+    </p>
+    <a href="/board" class="fade-in" style="animation-delay: 0.9s;">Go to Dashboard</a>
+
+    <!-- JavaScript -->
+    <script>
+        const themeToggleBtn = document.getElementById("themeToggle");
+
+        themeToggleBtn.addEventListener("click", function() {
+            document.body.classList.toggle("light-theme");
+            document.body.classList.toggle("dark-theme");
+        });
+
+        // Add initial animations
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.slide-up').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.3}s`;
+            });
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                el.style.animationDelay = `${(index + 2) * 0.3}s`;
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
